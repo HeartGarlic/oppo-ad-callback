@@ -3,7 +3,6 @@ package oppo_ad_callback
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 )
@@ -28,8 +27,6 @@ func (hc *HttpClient) PostJsonAndHeader(data interface{}, header http.Header) ([
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println(header)
-	fmt.Println(jsonBuf.String())
 	req, err := http.NewRequest("POST", hc.url, jsonBuf)
 	if err != nil {
 		return nil, err
